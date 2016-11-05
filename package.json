@@ -9,6 +9,7 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": "jmalk/basic-todo",
   "dependencies": {
     "express": "^4.14.0"
   },
