@@ -21,6 +21,23 @@ server.post('/api/todo/:task', function(req, res) {
   });
 });
 
+server.delete('/api/todo/:task', function(req, res) {
+  fs.readFile('todo-list.json', 'utf8', function (err, data) {
+    if (err) throw err;
+
+    var data = JSON.parse(data);
+    if (data.indexOf(req.params.task) !== -1) {
+      data.splice(data.indexOf(req.params.task), 1);
+    }
+    data = JSON.stringify(data);
+
+    fs.writeFile('todo-list.json', data, 'utf8', function(err) {
+      if (err) throw err;
+      fs.createReadStream('todo-list.json').pipe(res);
+    });
+  });
+});
+
 server.listen(8080, function () {
   console.log('Server listening on port 8080');
 });
