@@ -1,5 +1,7 @@
 # My Simple To-Do List
 
+[![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 A simple to-do list web app. I am building this to learn things.
 
 To run it locally, clone it, then run
