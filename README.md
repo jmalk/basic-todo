@@ -1,4 +1,4 @@
-# My Simple To-Do List
+# To-Do List Web App
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
