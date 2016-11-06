@@ -1,6 +1,7 @@
 var express = require('express')
 var server = express()
 var fs = require('fs')
+var path = require('path')
 
 server.get('/api/todo', (req, res) => {
   fs.createReadStream('todo-list.json').pipe(res)
@@ -36,6 +37,10 @@ server.delete('/api/todo/:task', (req, res) => {
       fs.createReadStream('todo-list.json').pipe(res)
     })
   })
+})
+
+server.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/index.html'))
 })
 
 server.listen(8080, () => {
