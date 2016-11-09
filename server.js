@@ -3,12 +3,14 @@ var server = express()
 var fs = require('fs')
 var path = require('path')
 
+const TODO_LIST_FILENAME = 'todo-list.json'
+
 server.get('/api/todo', (req, res) => {
-  fs.createReadStream('todo-list.json').pipe(res)
+  fs.createReadStream(TODO_LIST_FILENAME).pipe(res)
 })
 
 server.post('/api/todo/:task', (req, res) => {
-  fs.readFile('todo-list.json', 'utf8', (err, data) => {
+  fs.readFile(TODO_LIST_FILENAME, 'utf8', (err, data) => {
     if (err) throw err
 
     // try catch when getting json
@@ -21,7 +23,7 @@ server.post('/api/todo/:task', (req, res) => {
 })
 
 server.delete('/api/todo/:task', (req, res) => {
-  fs.readFile('todo-list.json', 'utf8', (err, data) => {
+  fs.readFile(TODO_LIST_FILENAME, 'utf8', (err, data) => {
     if (err) throw err
 
     data = JSON.parse(data)
@@ -44,9 +46,9 @@ server.listen(8080, () => {
 })
 
 function updateFileThenSendAsResponse (data, res) {
-  fs.writeFile('todo-list.json', data, 'utf8', (err) => {
+  fs.writeFile(TODO_LIST_FILENAME, data, 'utf8', (err) => {
     if (err) throw err
-    fs.createReadStream('todo-list.json').pipe(res)
+    fs.createReadStream(TODO_LIST_FILENAME).pipe(res)
   })
 }
 
