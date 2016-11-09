@@ -16,3 +16,11 @@ This will set nodemon running, which will automatically restart the server when 
 I would not recommend running this app on a live server.
 
 Navigate to [localhost:8080/api/todo](localhost:8080/api/todo) to see a short sample to-do list.
+
+## Automated Tests
+
+To run the unit tests, run
+
+```
+npm run test
+```
