@@ -16,10 +16,7 @@ server.post('/api/todo/:task', (req, res) => {
     data.push(req.params.task)
     data = JSON.stringify(data)
 
-    fs.writeFile('todo-list.json', data, 'utf8', (err) => {
-      if (err) throw err
-      fs.createReadStream('todo-list.json').pipe(res)
-    })
+    updateFileThenSendAsResponse(data, res)
   })
 })
 
@@ -34,10 +31,7 @@ server.delete('/api/todo/:task', (req, res) => {
     }
     data = JSON.stringify(data)
 
-    fs.writeFile('todo-list.json', data, 'utf8', (err) => {
-      if (err) throw err
-      fs.createReadStream('todo-list.json').pipe(res)
-    })
+    updateFileThenSendAsResponse(data, res)
   })
 })
 
@@ -48,4 +42,11 @@ server.get('/', (req, res) => {
 server.listen(8080, () => {
   console.log('Server listening on port 8080')
 })
+
+function updateFileThenSendAsResponse (data, res) {
+  fs.writeFile('todo-list.json', data, 'utf8', (err) => {
+    if (err) throw err
+    fs.createReadStream('todo-list.json').pipe(res)
+  })
+}
 
