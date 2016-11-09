@@ -11,6 +11,7 @@ server.post('/api/todo/:task', (req, res) => {
   fs.readFile('todo-list.json', 'utf8', (err, data) => {
     if (err) throw err
 
+    // try catch when getting json
     data = JSON.parse(data)
     data.push(req.params.task)
     data = JSON.stringify(data)
@@ -27,6 +28,7 @@ server.delete('/api/todo/:task', (req, res) => {
     if (err) throw err
 
     data = JSON.parse(data)
+    // array.find exists, try it here
     if (data.indexOf(req.params.task) !== -1) {
       data.splice(data.indexOf(req.params.task), 1)
     }
