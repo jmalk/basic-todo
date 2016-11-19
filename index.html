@@ -3,10 +3,31 @@
 
 <head>
   <title>MinimaList</title>
+  <script type="text/javascript">
+    function getList () {
+      httpRequest = new XMLHttpRequest();
+
+      httpRequest.onreadystatechange = logResponse;
+      httpRequest.open('GET', 'http://localhost:1337/api/todo');
+      httpRequest.send();
+    }
+
+function logResponse () {
+  if (httpRequest.readyState === XMLHttpRequest.DONE) {
+    if (httpRequest.status === 200) {
+      console.log(httpRequest.responseText);
+    } else {
+      console.log('There was a problem with the request.');
+    }
+  }
+}
+</script>
+
 </head>
 
 <body>
   <h1>MinimaList</h1>
+  <button id="getListButton" onclick="getList()">Get list!</button>
 </body>
 
 </html>
