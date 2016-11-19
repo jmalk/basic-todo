@@ -41,8 +41,8 @@ server.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/index.html'))
 })
 
-server.listen(8080, () => {
-  console.log('Server listening on port 8080')
+server.listen(1337, () => {
+  console.log('Server listening on port 1337')
 })
 
 function updateFileThenSendAsResponse (data, res) {
