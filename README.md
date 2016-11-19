@@ -24,3 +24,7 @@ To run the unit tests, run
 ```
 npm run test
 ```
+
+## Goals and Feature Requests
+
+* Automate tests
