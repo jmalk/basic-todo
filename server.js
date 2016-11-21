@@ -1,5 +1,6 @@
 var express = require('express')
 var server = express()
+module.exports = server
 var fs = require('fs')
 var path = require('path')
 
@@ -51,4 +52,3 @@ function updateFileThenSendAsResponse (data, res) {
     fs.createReadStream(TODO_LIST_FILENAME).pipe(res)
   })
 }
-

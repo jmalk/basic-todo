@@ -16,6 +16,13 @@
   "devDependencies": {
     "jasmine": "^2.5.2",
     "nodemon": "^1.11.0",
-    "standard": "^8.5.0"
+    "standard": "^8.5.0",
+    "supertest": "^2.0.1"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it"
+    ]
   }
 }
