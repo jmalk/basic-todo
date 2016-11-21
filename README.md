@@ -19,6 +19,12 @@ Navigate to [localhost:8080/api/todo](localhost:8080/api/todo) to see a short sa
 
 ## Automated Tests
 
+To check the code against the StandardJS style guide, run
+
+```
+npm run lint
+```
+
 To run the unit tests, run
 
 ```
