@@ -15,7 +15,7 @@ This will set nodemon running, which will automatically restart the server when 
 
 I would not recommend running this app on a live server.
 
-Navigate to [localhost:8080/api/todo](localhost:8080/api/todo) to see a short sample to-do list.
+Navigate to [http://localhost:1337/api/todo](http://localhost:1337/api/todo) to see a short sample to-do list.
 
 ## Automated Tests
 
