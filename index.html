@@ -16,6 +16,8 @@ function logResponse () {
   if (httpRequest.readyState === XMLHttpRequest.DONE) {
     if (httpRequest.status === 200) {
       console.log(httpRequest.responseText);
+      var listElement = document.getElementById('list');
+      listElement.textContent = httpRequest.responseText;
     } else {
       console.log('There was a problem with the request.');
     }
@@ -28,6 +30,7 @@ function logResponse () {
 <body>
   <h1>MinimaList</h1>
   <button id="getListButton" onclick="getList()">Get list!</button>
+  <p id="list"></p>
 </body>
 
 </html>
