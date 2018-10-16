@@ -18,6 +18,17 @@ function logResponse () {
       console.log(httpRequest.responseText);
       var listElement = document.getElementById('list');
       listElement.textContent = httpRequest.responseText;
+      var todoListItems = [];
+
+      try {
+        todoListItems = JSON.parse(httpRequest.responseText);
+      } catch (e) {
+        console.log(e);
+      }
+
+      todoListItems.forEach(function (item) {
+        console.log(item);
+      });
     } else {
       console.log('There was a problem with the request.');
     }
